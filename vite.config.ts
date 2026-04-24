@@ -5,6 +5,10 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // Served at domain root via custom domain (patelsmatrimony.com).
+  // If you ever deploy without a custom domain to <user>.github.io/<repo>/,
+  // change base to "/<repo>/".
+  base: "/",
   server: {
     host: "::",
     port: 8080,

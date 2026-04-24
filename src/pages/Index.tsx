@@ -61,7 +61,7 @@ const Index = () => {
         <div className="relative container mx-auto px-4 py-24 md:py-32">
           <div className="max-w-2xl">
             <Badge className="mb-6 bg-gradient-romantic">
-              India's Most Trusted Matrimony Service
+              Exclusively for Munnuru Kapu Matrimony
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Find Your Perfect{" "}
@@ -69,9 +69,12 @@ const Index = () => {
                 Life Partner
               </span>
             </h1>
+            <p className="text-base md:text-lg font-medium mb-3">
+              Exclusively for <strong className="text-primary">Munnuru Kapu</strong> community
+            </p>
             <p className="text-xl text-muted-foreground mb-8">
-              Join thousands of happy couples who found their soulmate through PatelsMatrimony.
-              Trusted, secure, and designed for Indian families.
+              Join thousands of happy couples who found their soulmate through PatelsMatrimony —
+              India's trusted <strong className="text-foreground">Munnuru Kapu Matrimony</strong> service.
             </p>
 
             {/* Quick Search */}
@@ -208,7 +211,7 @@ const Index = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose Your Plan</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Select the perfect plan to start your journey
+              Select the perfect plan to start your journey. Contact us on WhatsApp for current pricing.
             </p>
           </div>
 
@@ -217,8 +220,7 @@ const Index = () => {
             <Card>
               <CardHeader>
                 <CardTitle>Free</CardTitle>
-                <div className="text-3xl font-bold mt-4">₹0</div>
-                <CardDescription>Perfect to get started</CardDescription>
+                <CardDescription className="mt-2">Perfect to get started</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <ul className="space-y-3">
@@ -236,7 +238,7 @@ const Index = () => {
                   </li>
                 </ul>
                 <Button className="w-full" variant="outline" asChild>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Get Started</a>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Contact on WhatsApp</a>
                 </Button>
               </CardContent>
             </Card>
@@ -246,8 +248,7 @@ const Index = () => {
               <CardHeader>
                 <Badge className="w-fit mb-2 bg-gradient-romantic">Most Popular</Badge>
                 <CardTitle>Monthly</CardTitle>
-                <div className="text-3xl font-bold mt-4">₹999<span className="text-lg font-normal text-muted-foreground">/month</span></div>
-                <CardDescription>Best for active searchers</CardDescription>
+                <CardDescription className="mt-2">Best for active searchers</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <ul className="space-y-3">
@@ -269,7 +270,7 @@ const Index = () => {
                   </li>
                 </ul>
                 <Button className="w-full bg-gradient-romantic" asChild>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Subscribe Now</a>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Contact on WhatsApp</a>
                 </Button>
               </CardContent>
             </Card>
@@ -279,8 +280,7 @@ const Index = () => {
               <CardHeader>
                 <Badge className="w-fit mb-2" variant="secondary">Best Value</Badge>
                 <CardTitle>Yearly</CardTitle>
-                <div className="text-3xl font-bold mt-4">₹7,999<span className="text-lg font-normal text-muted-foreground">/year</span></div>
-                <CardDescription>Save 33% annually</CardDescription>
+                <CardDescription className="mt-2">Premium annual plan</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <ul className="space-y-3">
@@ -302,7 +302,7 @@ const Index = () => {
                   </li>
                 </ul>
                 <Button className="w-full" variant="outline" asChild>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Subscribe Now</a>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Contact on WhatsApp</a>
                 </Button>
               </CardContent>
             </Card>
@@ -360,9 +360,12 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-romantic">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-foreground">
             Ready to Find Your Life Partner?
           </h2>
+          <p className="text-base md:text-lg text-primary-foreground/90 mb-2 font-medium">
+            Exclusively for Munnuru Kapu
+          </p>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             Join thousands of happy members who found their soulmate
           </p>

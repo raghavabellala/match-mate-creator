@@ -14,3 +14,15 @@ export const DEVELOPER = {
   name: "AI NexGen Labs",
   url: "https://www.linkedin.com/in/raghavendra-bellala/",
 };
+
+export const TAGLINE = "Exclusively for Munnuru Kapu";
+
+// Founder details — image is configurable for easy replacement.
+import founderPhoto from "@/assets/founder-kola-janardhan.jpg";
+
+export const FOUNDER = {
+  name: "Kola Janardhan",
+  role: "Founder – Patels Matrimony",
+  label: "Trusted Community Leader",
+  photo: founderPhoto,
+};

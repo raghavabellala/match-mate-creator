@@ -43,9 +43,14 @@ export const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <Heart className="h-8 w-8 text-primary fill-primary" />
-            <span className="text-xl font-bold bg-gradient-romantic bg-clip-text text-transparent">
-              PatelsMatrimony
-            </span>
+            <div className="flex flex-col leading-tight">
+              <span className="text-xl font-bold bg-gradient-romantic bg-clip-text text-transparent">
+                PatelsMatrimony
+              </span>
+              <span className="text-[10px] md:text-xs text-muted-foreground -mt-0.5">
+                Exclusively for <strong className="text-primary font-semibold">Munnuru Kapu</strong>
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

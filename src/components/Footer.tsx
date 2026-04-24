@@ -15,8 +15,11 @@ export const Footer = () => {
                 PatelsMatrimony
               </span>
             </div>
+            <p className="text-sm font-medium">
+              Exclusively for <strong className="text-primary">Munnuru Kapu</strong>
+            </p>
             <p className="text-sm text-muted-foreground">
-              Find your perfect life partner from thousands of verified profiles.
+              Find your perfect life partner from thousands of verified Munnuru Kapu Matrimony profiles.
             </p>
           </div>
 

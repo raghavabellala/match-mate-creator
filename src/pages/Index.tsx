@@ -11,6 +11,7 @@ import heroImage from "@/assets/hero-image.jpg";
 import { Badge } from "@/components/ui/badge";
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -234,8 +235,8 @@ const Index = () => {
                     <span>Limited search</span>
                   </li>
                 </ul>
-                <Button className="w-full" variant="outline" onClick={() => navigate("/auth")}>
-                  Get Started
+                <Button className="w-full" variant="outline" asChild>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Get Started</a>
                 </Button>
               </CardContent>
             </Card>
@@ -267,8 +268,8 @@ const Index = () => {
                     <span>Priority support</span>
                   </li>
                 </ul>
-                <Button className="w-full bg-gradient-romantic" onClick={() => navigate("/auth")}>
-                  Subscribe Now
+                <Button className="w-full bg-gradient-romantic" asChild>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Subscribe Now</a>
                 </Button>
               </CardContent>
             </Card>
@@ -300,8 +301,8 @@ const Index = () => {
                     <span>Dedicated support</span>
                   </li>
                 </ul>
-                <Button className="w-full" variant="outline" onClick={() => navigate("/auth")}>
-                  Subscribe Now
+                <Button className="w-full" variant="outline" asChild>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Subscribe Now</a>
                 </Button>
               </CardContent>
             </Card>
@@ -369,9 +370,11 @@ const Index = () => {
             size="lg"
             variant="secondary"
             className="text-lg px-8"
-            onClick={() => navigate("/auth")}
+            asChild
           >
-            Register for Free
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              Register for Free
+            </a>
           </Button>
         </div>
       </section>

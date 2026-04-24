@@ -1,5 +1,6 @@
-import { Heart, Mail, Phone, MapPin } from "lucide-react";
+import { Heart, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CONTACT, DEVELOPER } from "@/lib/contact";
 
 export const Footer = () => {
   return (
@@ -24,13 +25,13 @@ export const Footer = () => {
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/search" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Search Profiles
+                <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Home
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Pricing Plans
+                <Link to="/search" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Search Profiles
                 </Link>
               </li>
               <li>
@@ -46,45 +47,39 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal */}
-          <div>
-            <h3 className="font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Contact */}
           <div>
-            <h3 className="font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Mail className="h-4 w-4" />
-                <span>support@patelsmatrimony.com</span>
-              </li>
-              <li className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Phone className="h-4 w-4" />
-                <span>+91 1800-123-4567</span>
-              </li>
-              <li className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4" />
-                <span>India</span>
-              </li>
+            <h3 className="font-semibold mb-4">Contact</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li className="font-medium text-foreground">{CONTACT.name}</li>
+              <li>{CONTACT.organization}</li>
+              {CONTACT.phones.map((phone) => (
+                <li key={phone} className="flex items-center space-x-2">
+                  <Phone className="h-4 w-4" />
+                  <a
+                    href={`tel:${phone.replace(/\s+/g, "")}`}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {phone}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} PatelsMatrimony.com — Developed by AI NexGen Labs</p>
+          <p>
+            © 2026 PatelsMatrimony.com — Developed by{" "}
+            <a
+              href={DEVELOPER.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline font-medium"
+            >
+              {DEVELOPER.name}
+            </a>
+          </p>
         </div>
       </div>
     </footer>

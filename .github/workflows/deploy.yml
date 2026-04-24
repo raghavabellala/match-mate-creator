@@ -31,9 +31,9 @@ jobs:
         run: bun run build
         env:
           # Lovable Cloud (Supabase) public keys are baked into the static build.
-          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
-          VITE_SUPABASE_PROJECT_ID: ${{ vars.VITE_SUPABASE_PROJECT_ID }}
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL || 'https://expciafblygbqmuacoqq.supabase.co' }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV4cGNpYWZibHlnYnFtdWFjb3FxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MjkxNDcsImV4cCI6MjA3ODIwNTE0N30.1bvfCB1Zu6VhTdObbNcPdTd3BlnaE5o7oNEM2Mj2a4w' }}
+          VITE_SUPABASE_PROJECT_ID: ${{ vars.VITE_SUPABASE_PROJECT_ID || 'expciafblygbqmuacoqq' }}
 
       - name: SPA fallback (copy index.html to 404.html)
         run: cp dist/index.html dist/404.html

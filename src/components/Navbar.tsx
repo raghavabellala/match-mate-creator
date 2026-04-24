@@ -1,11 +1,18 @@
-import { Heart, Menu, User, X } from "lucide-react";
+import { Heart, Menu, User, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
+import { WHATSAPP_URL } from "@/lib/contact";
+
+const NAV_LINKS = [
+  { label: "Home", to: "/" },
+  { label: "Search", to: "/search" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
+];
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,24 +22,17 @@ export const Navbar = () => {
   const [user, setUser] = useState(null);
 
   // Check auth state
-  supabase.auth.onAuthStateChange((event, session) => {
+  supabase.auth.onAuthStateChange((_event, session) => {
     setUser(session?.user ?? null);
   });
 
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
-      toast({
-        title: "Error",
-        description: "Failed to logout",
-        variant: "destructive",
-      });
+      toast({ title: "Error", description: "Failed to logout", variant: "destructive" });
     } else {
       navigate("/");
-      toast({
-        title: "Logged out",
-        description: "You have been successfully logged out",
-      });
+      toast({ title: "Logged out", description: "You have been successfully logged out" });
     }
   };
 
@@ -50,18 +50,15 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/search" className="text-foreground hover:text-primary transition-colors">
-              Search
-            </Link>
-            <Link to="/pricing" className="text-foreground hover:text-primary transition-colors">
-              Pricing
-            </Link>
-            <Link to="/about" className="text-foreground hover:text-primary transition-colors">
-              About
-            </Link>
-            <Link to="/contact" className="text-foreground hover:text-primary transition-colors">
-              Contact
-            </Link>
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
           {/* Desktop Actions */}
@@ -70,6 +67,7 @@ export const Navbar = () => {
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              aria-label="Toggle theme"
             >
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
@@ -85,11 +83,15 @@ export const Navbar = () => {
               </>
             ) : (
               <>
-                <Button variant="outline" onClick={() => navigate("/auth")}>
-                  Login
+                <Button variant="outline" asChild>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    Login
+                  </a>
                 </Button>
-                <Button onClick={() => navigate("/auth")} className="bg-gradient-romantic">
-                  Register Free
+                <Button asChild className="bg-gradient-romantic">
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    Register Free
+                  </a>
                 </Button>
               </>
             )}
@@ -99,6 +101,7 @@ export const Navbar = () => {
           <button
             className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X /> : <Menu />}
           </button>
@@ -107,34 +110,16 @@ export const Navbar = () => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-4">
-            <Link
-              to="/search"
-              className="block text-foreground hover:text-primary transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Search
-            </Link>
-            <Link
-              to="/pricing"
-              className="block text-foreground hover:text-primary transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Pricing
-            </Link>
-            <Link
-              to="/about"
-              className="block text-foreground hover:text-primary transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              to="/contact"
-              className="block text-foreground hover:text-primary transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="block text-foreground hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
             <div className="pt-4 border-t border-border space-y-2">
               {user ? (
                 <>
@@ -161,24 +146,15 @@ export const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <Button
-                    variant="outline"
-                    className="w-full"
-                    onClick={() => {
-                      navigate("/auth");
-                      setMobileMenuOpen(false);
-                    }}
-                  >
-                    Login
+                  <Button variant="outline" className="w-full" asChild>
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                      Login
+                    </a>
                   </Button>
-                  <Button
-                    className="w-full bg-gradient-romantic"
-                    onClick={() => {
-                      navigate("/auth");
-                      setMobileMenuOpen(false);
-                    }}
-                  >
-                    Register Free
+                  <Button className="w-full bg-gradient-romantic" asChild>
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                      Register Free
+                    </a>
                   </Button>
                 </>
               )}

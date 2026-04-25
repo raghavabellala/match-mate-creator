@@ -1,11 +1,11 @@
-import { Menu, User, X, Moon, Sun } from "lucide-react";
+import { Heart, Menu, User, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "next-themes";
-import { WHATSAPP_URL, FOUNDER } from "@/lib/contact";
+import { WHATSAPP_URL } from "@/lib/contact";
 
 const NAV_LINKS = [
   { label: "Home", to: "/" },
@@ -42,13 +42,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img
-              src={FOUNDER.photo}
-              alt={`${FOUNDER.name} — ${FOUNDER.role}`}
-              onContextMenu={(e) => e.preventDefault()}
-              draggable={false}
-              className="h-9 w-9 rounded-full object-cover border-2 border-primary/30 shadow-sm select-none"
-            />
+            <Heart className="h-8 w-8 text-primary fill-primary" />
             <div className="flex flex-col leading-tight">
               <span className="text-xl font-bold bg-gradient-romantic bg-clip-text text-transparent">
                 PatelsMatrimony
